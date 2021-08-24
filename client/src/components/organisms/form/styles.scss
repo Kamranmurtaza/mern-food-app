@@ -1,0 +1,31 @@
+.form {
+  background: white;
+  padding: 3rem;
+  border-radius: 0.4rem;
+
+  &__title {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 0.6rem 0.4rem;
+  }
+
+  &__row {
+    display: flex;
+  }
+
+  &__submit-button-wrapper {
+    margin: 0.6rem 0.4rem;
+
+    .form__submit-button {
+      width: 100%;
+      color: white;
+      padding: 11px;
+      font-weight: bold;
+      border-radius: 0;
+    }
+  }
+
+  &__footer {
+    margin: 0.6rem 0.4rem;
+  }
+}

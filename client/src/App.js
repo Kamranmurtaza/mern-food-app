@@ -1,13 +1,19 @@
-import Button from 'react-bootstrap/Button'
-import Heading from 'components/Heading'
+import Routes from 'routes';
+import store, { persistor } from 'redux/store';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 function App() {
   return (
-    <div className='App'>
-      <Heading>Hello World</Heading>
-      <Button>Sample</Button>
-    </div>
-  )
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <Routes />
+        <ToastContainer />
+      </PersistGate>
+    </Provider>
+  );
 }
 
-export default App
+export default App;
