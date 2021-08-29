@@ -1,0 +1,40 @@
+.item-card {
+  margin: 10px;
+  width: 20%;
+  border-radius: 10px;
+  justify-content: space-between;
+
+  @media (max-width: 1600px) {
+    width: 33.33%;
+  }
+
+  @media (max-width: 950px) {
+    width: 50%;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
+  &__title {
+    padding: 30px 10px;
+    background: #008080;
+    color: white;
+    text-align: center;
+    margin: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  &__body {
+    padding: 10px;
+    color: #484848;
+  }
+
+  &__price {
+    font-weight: bold;
+    color: black;
+    text-align: right;
+    margin: 0;
+  }
+}

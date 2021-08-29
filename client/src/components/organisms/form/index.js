@@ -7,8 +7,8 @@ import { CHECKBOX } from 'utils/form-fields';
 import { validators } from 'utils/form-validations';
 import './styles.scss';
 
-const Form = ({ form = {}, onFormSubmit, showErrorsOnBlur = false, loading = false, footer }) => {
-  const [formData, setFormData] = useState({});
+const Form = ({ form = {}, onFormSubmit, showErrorsOnBlur = false, loading = false, footer, defaultValues = {} }) => {
+  const [formData, setFormData] = useState(defaultValues);
   const [formErrors, setFormErrors] = useState({});
 
   const onChangeHandler = (e) => {
@@ -78,7 +78,7 @@ const Form = ({ form = {}, onFormSubmit, showErrorsOnBlur = false, loading = fal
 
   return (
     <div className="form">
-      <Heading className="form__title">{form.title}</Heading>
+      {form.title && <Heading className="form__title">{form.title}</Heading>}
       <form onSubmit={onSubmit}>
         {form.formInputs.map((formRow, rowIndex) => (
           <div key={rowIndex} className="form__row">
