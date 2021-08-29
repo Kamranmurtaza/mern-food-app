@@ -1,0 +1,21 @@
+.actions-footer {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #e2e2e2;
+
+  &__item {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+
+    cursor: pointer;
+
+    &.edit {
+      color: #0070ff;
+    }
+    &.delete {
+      border-left: 1px solid #e2e2e2;
+      color: red;
+    }
+  }
+}

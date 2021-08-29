@@ -2,28 +2,23 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const 
 const mealSchema = new Schema({
-  user: {
-    type: Schema.Types.ObjectId,
-    ref: 'Buyer',
+  name: {
+    type: String,
+    maxlength: 50,
     required: true,
   },
-  meals: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Meal',
-    },
-  ],
+  description: {
+    type: String,
+  },
+  price: {
+    type: Number,
+    required: true,
+  },
   restaurant: {
     type: Schema.Types.ObjectId,
     ref: 'Restaurant',
     required: true,
-  },
-  status: {
-    type: String, 
-    enum : ['Placed','Canceled', 'Processing', 'In Route', 'Delivered', 'Received'], 
-    default: 'normal' 
   },
 });
 
