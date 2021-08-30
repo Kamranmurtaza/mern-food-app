@@ -26,10 +26,6 @@ const cartSchema = new Schema({
   },
 });
 
-cartSchema.virtual('totalPrice').get(() => {
-  return this.items.reduce((prev, cur) => cur.price * cur.quantity + prev, 0);
-});
-
 const Cart = mongoose.model('Cart', cartSchema);
 
 module.exports = Cart;

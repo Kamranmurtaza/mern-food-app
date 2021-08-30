@@ -11,7 +11,7 @@ const addMeal = async (req, res) => {
   const { restaurantId } = req.params;
   const meal = new Meal({ name, description, price, restaurant: restaurantId });
   await meal.save();
-  res.status(201).send(meal.populate('restaurant'));
+  res.status(201).send(meal);
 };
 
 const getMeal = async (req, res) => {

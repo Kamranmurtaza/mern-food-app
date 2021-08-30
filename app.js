@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const authRoutes = require('./routes/auth');
 const restaurantRoutes = require('./routes/restaurant');
 const mealRoutes = require('./routes/meal');
+const cartRoutes = require('./routes/cart');
 const { error } = require('./middlewares/error');
 
 winston.add(new winston.transports.File({ filename: 'logfile.log' }));
@@ -24,6 +25,7 @@ app.use(bodyParser.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/restaurants/:restaurantId/meals', mealRoutes);
 app.use('/api/restaurants', restaurantRoutes);
+app.use('/api/cart', cartRoutes);
 
 app.use(error);
 

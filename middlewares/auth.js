@@ -5,11 +5,10 @@ const Meal = require('../models/Meal');
 const permit = (role) => {
   return (req, res, next) => {
     const { userType } = req.body;
-    console.log(userType, role);
     if (userType === role) {
       next();
     } else {
-      res.status(403).send({ message: 'Action forbidden' });
+      res.status(403).send({ message: 'You are not allowed to perform this action' });
     }
   };
 };

@@ -22,7 +22,7 @@ const CartFooter = ({ className, onAddToCart, ...props }) => {
           <img src={addIcon} alt="..." />
         </div>
       </div>
-      <Button onClick={onAddToCart}>Add to Cart</Button>
+      <Button onClick={() => onAddToCart(quantity)}>Add to Cart</Button>
     </div>
   );
 };
