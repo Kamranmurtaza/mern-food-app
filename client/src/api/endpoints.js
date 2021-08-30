@@ -77,3 +77,16 @@ export const meal = {
     };
   },
 };
+
+export const cart = {
+  getCart: (cartId) => {
+    return {
+      method: GET,
+      url: `/cart/${cartId}`,
+    };
+  },
+  patchCart: {
+    method: PATCH,
+    url: `/cart`,
+  },
+};

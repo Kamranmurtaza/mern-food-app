@@ -3,7 +3,6 @@ const Restaurant = require('../models/Restaurant');
 const getRestaurants = async (req, res) => {
   const { owner } = req.query;
   let restaurants;
-  console.log(req.body);
   if (owner) {
     restaurants = await Restaurant.find({ owner });
   } else {

@@ -19,6 +19,7 @@ const ItemsList = ({
   showActions,
   form,
   showCart,
+  onAddToCart,
   ...props
 }) => {
   const [showFormModal, setShowFormModal] = useState(false);
@@ -68,7 +69,11 @@ const ItemsList = ({
                       }}
                     />
                   ) : showCart ? (
-                    <CartFooter onAddToCart={() => {}} />
+                    <CartFooter
+                      onAddToCart={(quantity) => {
+                        onAddToCart(_id, quantity);
+                      }}
+                    />
                   ) : null}
                 </div>
               )}

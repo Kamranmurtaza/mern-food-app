@@ -18,3 +18,12 @@
     margin: 0.6rem 0.4rem;
   }
 }
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 0 8px;
+}

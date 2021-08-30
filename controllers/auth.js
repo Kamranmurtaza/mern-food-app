@@ -16,6 +16,7 @@ const login = async (req, res) => {
         fullName: user.fullName,
         email: user.email,
         userType: user.userType,
+        ...(user.cartId && { cartId: user.cartId }),
       };
       const token = jwt.sign(userObject, process.env.JWT_SECRET);
       return res.status(200).send({ ...userObject, token });
