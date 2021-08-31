@@ -5,7 +5,7 @@ import Text from 'components/atoms/Text';
 import { Link, useLocation } from 'react-router-dom';
 import './styles.scss';
 
-const ItemCard = ({ isLink, linkSlug = '', id, title, description, price, footer, className, ...props }) => {
+const ItemCard = ({ isLink, linkSlug = '', id, title, description, body, price, footer, className = '', ...props }) => {
   const location = useLocation();
 
   return (
@@ -20,6 +20,7 @@ const ItemCard = ({ isLink, linkSlug = '', id, title, description, price, footer
       </ConditionalWrapper>
       <div className="item-card__body">
         <Text className="item-card__description">{description}</Text>
+        {body && body()}
         {price && <Text className="item-card__price">Price: ${price}</Text>}
       </div>
       <div className="item-card__footer">{footer && footer()}</div>

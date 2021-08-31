@@ -5,6 +5,8 @@ import { BUYER, RESTAURANT_OWNER } from 'utils/roles';
 import ProtectedRoute from './protected-route';
 import RestaurantsPage from 'pages/restaurants';
 import MealsPage from 'pages/meals';
+import OrdersPage from 'pages/orders';
+import BlockUsersPage from 'pages/blockUsers';
 
 const Routes = () => {
   return (
@@ -17,14 +19,20 @@ const Routes = () => {
         <Route exact path="/restaurants/:restaurantId/meals" component={MealsPage} />
         <ProtectedRoute exact path="/login" auth component={LoginPage} />
         <ProtectedRoute exact path="/register" auth component={RegisterPage} />
-        <ProtectedRoute exact path="/buyer" role={BUYER}>
-          <div>buyer - protected</div>
+        <ProtectedRoute exact path="/orders" role={BUYER}>
+          <OrdersPage />
         </ProtectedRoute>
         <ProtectedRoute exact path="/dashboard/restaurants" role={RESTAURANT_OWNER}>
           <RestaurantsPage showActions={true} />
         </ProtectedRoute>
         <ProtectedRoute exact path="/dashboard/restaurants/:restaurantId/meals" role={RESTAURANT_OWNER}>
           <MealsPage showActions={true} />
+        </ProtectedRoute>
+        <ProtectedRoute exact path="/dashboard/orders" role={RESTAURANT_OWNER}>
+          <OrdersPage />
+        </ProtectedRoute>
+        <ProtectedRoute exact path="/dashboard/users" role={RESTAURANT_OWNER}>
+          <BlockUsersPage />
         </ProtectedRoute>
       </Switch>
     </Router>

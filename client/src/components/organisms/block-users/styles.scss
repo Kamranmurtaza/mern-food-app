@@ -1,0 +1,48 @@
+.users-list {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  &__list {
+    display: flex;
+    padding: 0 10px;
+    flex-wrap: wrap;
+  }
+
+  &__button--unblock {
+    background-color: white;
+    border: 1px solid teal;
+    color: teal;
+  }
+
+  &__row {
+    margin: 10px;
+    width: 20%;
+    border-radius: 10px;
+    justify-content: space-between;
+    text-align: center;
+    padding: 10px;
+
+    @media (max-width: 1600px) {
+      width: 33.33%;
+    }
+
+    @media (max-width: 950px) {
+      width: 50%;
+    }
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+
+    & > * {
+      padding: 5px;
+    }
+
+    .button {
+      width: 100%;
+    }
+  }
+}

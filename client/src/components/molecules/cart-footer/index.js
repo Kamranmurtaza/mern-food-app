@@ -4,7 +4,7 @@ import addIcon from 'assets/icons/add.png';
 import removeIcon from 'assets/icons/remove.png';
 import './styles.scss';
 
-const CartFooter = ({ className, onAddToCart, ...props }) => {
+const CartFooter = ({ className = '', onAddToCart, ...props }) => {
   const [quantity, setQuantity] = useState(1);
   const onQuantityChange = (addition) => {
     if (!(addition === -1 && quantity === 1)) {

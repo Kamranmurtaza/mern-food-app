@@ -1,6 +1,6 @@
 import './styles.scss';
 
-const ActionsFooter = ({ className, onEditClick, onDeleteClick, ...props }) => {
+const ActionsFooter = ({ className = '', onEditClick, onDeleteClick, ...props }) => {
   return (
     <div className={`actions-footer ${className}`} {...props}>
       <div className="actions-footer__item edit" onClick={onEditClick}>

@@ -26,15 +26,28 @@ const orderSchema = new Schema({
     ref: 'Restaurant',
     required: true,
   },
+  restaurantOwner: {
+    type: Schema.Types.ObjectId,
+    ref: 'RestaurantOwner',
+    required: true,
+  },
   status: {
     type: String,
     enum: ORDER_STATUSES,
     default: 'Placed',
   },
-});
-
-orderSchema.virtual('cost').get(() => {
-  return this.items.reduce((prev, cur) => cur.price * cur.quantity + prev, 0);
+  amount: {
+    type: Number,
+    required: true,
+  },
+  history: {
+    placed: Date,
+    cancelled: Date,
+    processing: Date,
+    inRoute: Date,
+    delivered: Date,
+    received: Date,
+  },
 });
 
 const Order = mongoose.model('Order', orderSchema);

@@ -1,6 +1,6 @@
 import './styles.scss';
 
-const Banner = ({ children, className, ...props }) => {
+const Banner = ({ children, className = '', ...props }) => {
   return (
     <div className={`banner ${className}`} {...props}>
       {children}

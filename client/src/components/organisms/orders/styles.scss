@@ -1,0 +1,30 @@
+.orders-list {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  &__list {
+    display: flex;
+    padding: 0 10px;
+    flex-wrap: wrap;
+  }
+
+  &__footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid rgb(209, 209, 209);
+  }
+
+  &__status {
+    color: teal;
+    border: 1px solid teal;
+    border-radius: 15px;
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+}

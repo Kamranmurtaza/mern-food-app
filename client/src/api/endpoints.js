@@ -90,3 +90,30 @@ export const cart = {
     url: `/cart`,
   },
 };
+
+export const order = {
+  getOrders: {
+    method: GET,
+    url: `/orders`,
+  },
+  postOrders: {
+    method: POST,
+    url: `/orders`,
+  },
+  patchOrder: (orderId) => {
+    return {
+      method: PATCH,
+      url: `/orders/${orderId}`,
+    };
+  },
+};
+export const blockUsers = {
+  getUsers: {
+    method: GET,
+    url: `/block-users`,
+  },
+  patchUsers: {
+    method: PATCH,
+    url: `/block-users`,
+  },
+};

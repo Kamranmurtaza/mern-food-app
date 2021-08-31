@@ -2,7 +2,7 @@ import Button from 'components/atoms/button';
 import Heading from '../heading';
 import './styles.scss';
 
-const Modal = ({ children, title = '', className, okText, onOk, onCancel, showFooter, ...props }) => {
+const Modal = ({ children, title = '', className = '', okText, onOk, onCancel, showFooter, ...props }) => {
   return (
     <div className={`modal ${className}`} {...props}>
       <div className="modal__content">

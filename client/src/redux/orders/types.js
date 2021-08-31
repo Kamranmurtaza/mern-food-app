@@ -1,0 +1,4 @@
+export const ORDERS_BEGIN = 'ORDERS_BEGIN';
+export const FETCH_ORDERS = 'FETCH_ORDERS';
+export const PLACE_ORDER = 'PLACE_ORDER';
+export const UPDATE_ORDER_STATUS = 'UPDATE_ORDER_STATUS';
