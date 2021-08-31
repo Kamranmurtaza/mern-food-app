@@ -15,7 +15,7 @@ const ItemsList = ({
   onAdd,
   onEdit,
   onDelete,
-  className,
+  className = '',
   showActions,
   form,
   showCart,

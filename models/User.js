@@ -79,6 +79,12 @@ const restaurantOwnerSchema = new Schema(
         ref: 'Restaurant',
       },
     ],
+    blockedUsers: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Buyer',
+      },
+    ],
   },
   options
 );

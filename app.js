@@ -9,6 +9,8 @@ const authRoutes = require('./routes/auth');
 const restaurantRoutes = require('./routes/restaurant');
 const mealRoutes = require('./routes/meal');
 const cartRoutes = require('./routes/cart');
+const orderRoutes = require('./routes/order');
+const blockUserRoutes = require('./routes/blockUsers');
 const { error } = require('./middlewares/error');
 
 winston.add(new winston.transports.File({ filename: 'logfile.log' }));
@@ -26,6 +28,8 @@ app.use('/api/auth', authRoutes);
 app.use('/api/restaurants/:restaurantId/meals', mealRoutes);
 app.use('/api/restaurants', restaurantRoutes);
 app.use('/api/cart', cartRoutes);
+app.use('/api/orders', orderRoutes);
+app.use('/api/block-users', blockUserRoutes);
 
 app.use(error);
 

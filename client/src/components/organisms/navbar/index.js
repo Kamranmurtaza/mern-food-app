@@ -7,9 +7,10 @@ import Logo from 'components/atoms/logo';
 import Sidebar from 'components/atoms/sidebar';
 import CartItem from 'components/molecules/cart-item';
 import { BUYER, RESTAURANT_OWNER } from 'utils/roles';
-import './styles.scss';
 import { editCart, fetchCart } from 'redux/cart/actions';
 import PageLoader from 'components/atoms/page-loader';
+import { placeOrder } from 'redux/orders/actions';
+import './styles.scss';
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -41,8 +42,8 @@ const Navbar = () => {
     setSideCart(false);
   };
 
-  const placeOrder = () => {
-    console.log('ORDER PLACED');
+  const placeOrders = () => {
+    dispatch(placeOrder({ items: cart.items, restaurantId: cart.restaurantId }, history));
   };
 
   return (
@@ -52,10 +53,11 @@ const Navbar = () => {
         <Logo />
         <div className="navbar__links">
           {user?.userType === RESTAURANT_OWNER && <Link to="/dashboard/restaurants">Dashboard</Link>}
+          {user?.userType === RESTAURANT_OWNER && <Link to="/dashboard/users">Users</Link>}
           {user?.id && <Link to={user?.userType === RESTAURANT_OWNER ? '/dashboard/orders' : '/orders'}>Orders</Link>}
           {user?.userType === BUYER && (
             <Button to="/dashboard/restaurants" onClick={sideCartOpen}>
-              Cart({cart?.items.length || 0})
+              Cart({cart?.items?.length || 0})
             </Button>
           )}
 
@@ -96,7 +98,7 @@ const Navbar = () => {
                     marginTop: '10px',
                     width: '100%',
                   }}
-                  onClick={placeOrder}
+                  onClick={placeOrders}
                 >
                   Place Order
                 </Button>

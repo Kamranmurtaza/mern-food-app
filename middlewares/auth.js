@@ -1,6 +1,8 @@
 const jwt = require('jsonwebtoken');
 const Restaurant = require('../models/Restaurant');
 const Meal = require('../models/Meal');
+const Order = require('../models/Order');
+const { BUYER, RESTAURANT_OWNER } = require('../constants/user-types');
 
 const permit = (role) => {
   return (req, res, next) => {
@@ -51,4 +53,17 @@ const checkRestaurantMeal = async (req, res, next) => {
   }
 };
 
-module.exports = { auth, permit, checkRestaurantOwnership, checkRestaurantMeal };
+const checkOrderOwnership = async (req, res, next) => {
+  const { orderId } = req.params;
+  const { id: userId, userType } = req.body;
+  const order = await Order.findById(orderId);
+  if (
+    (userType === BUYER && order.user.equals(userId)) ||
+    (userType === RESTAURANT_OWNER && order.restaurantOwner.equals(userId))
+  ) {
+    next();
+  } else {
+    res.status(403).send({ message: 'Action forbidden' });
+  }
+};
+module.exports = { auth, permit, checkRestaurantOwnership, checkRestaurantMeal, checkOrderOwnership };
